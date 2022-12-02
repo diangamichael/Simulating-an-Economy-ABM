@@ -21,7 +21,7 @@ def compute_gini(model):
 
 
 class WealthModel(Model):
-    """A model with some number of agents."""
+    """A model with 10000 number of agents."""
     global treasury
     def __init__(self, N, width, height):
         self.num_agents = N
@@ -154,7 +154,7 @@ class WealthAgent(Agent):
                 receiver.wealth += reward_c
                 treasury -= reward_c
                 project_participation += 1
-                #print("After reward, I own this much =", receiver.wealth)
+                print("After reward, I own this much =", receiver.wealth)
                 print("TOTAL PARTICIPANTS = ", project_participation)
 
     def step(self):
