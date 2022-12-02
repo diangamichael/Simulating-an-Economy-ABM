@@ -9,7 +9,7 @@ from mesa.datacollection import DataCollector
 
 #Global variables
 treasury = 0
-economy_scale = 10
+economy_scale = 10000000
 project_participation = 0
 
 def compute_gini(model):
@@ -124,9 +124,10 @@ class WealthAgent(Agent):
     # Upon paying tax, the agent is admitted to the Committee and can post a public project
     def collect_tax(self):
         global treasury
-        tax_c = 5
+        tax_c = 0
+        tax_r = 0.10
         if self.wealth > tax_c:
-            tax = math.floor(0.3*self.wealth)
+            tax = math.floor(tax_r*self.wealth)
             treasury += tax
             self.wealth -= tax
             print("I, member", self.pos, "have been taxed , paid", tax, "coin")
